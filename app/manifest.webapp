@@ -1,0 +1,42 @@
+{
+	"name": "Rues de Paris",
+	"description": "Historique et origine du nom de la rue de Paris où vous vous trouvez.",
+	"version": "0.1",
+	"launch_path": "/index.html",
+	"icons": {
+        "16": "/img/icons/ruesdeparis16.png",
+        "32": "/img/icons/ruesdeparis32.png",
+        "48": "/img/icons/ruesdeparis48.png",
+        "60": "/img/icons/ruesdeparis60.png",
+        "64": "/img/icons/ruesdeparis64.png",
+        "90": "/img/icons/ruesdeparis90.png",
+        "120": "/img/icons/ruesdeparis120.png",
+        "128": "/img/icons/ruesdeparis128.png",
+		"256": "/img/icons/ruesdeparis256.png"
+	},
+	"developer": {
+		"name": "Benjamin Dumas",
+		"url": "http://www.mygarageisgood4bricolage.com/ruesdeparis"
+	},
+	"installs_allowed_from": ["*"],
+	"locales": {
+		"es": {
+			"description": "La historia de la calle de Paris donde esta.",
+			"developer": {
+				"url": "http://www.mygarageisgood4bricolage.com/ruesdeparis"
+			}
+		},
+		"en": {
+			"description": "The history of the street of Paris where you are.",
+			"developer": {
+				"url": "http://www.mygarageisgood4bricolage.com/ruesdeparis"
+			}
+		}
+	},
+	"default_locale": "fr",
+	"permissions": {
+		"geolocation": {
+            "description" : "Localisation géographique de l'utilisateur."
+        }
+	}
+}

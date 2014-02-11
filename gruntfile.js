@@ -14,7 +14,7 @@ module.exports = function(grunt){
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         
-        /* test meta: {
+        /* TODO meta: {
             banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
               '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
               '<%= pkg.homepage ? "* " + pkg.homepage + "\n" : "" %>' +

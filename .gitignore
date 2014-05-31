@@ -1,10 +1,4 @@
-node_modules
-.settings
-.project
-*.class
-
-#sources
-app
-java
-gruntfile.js
-package.json
+/node_modules
+/.settings
+/.project
+/*.class

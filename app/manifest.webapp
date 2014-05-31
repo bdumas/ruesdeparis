@@ -2,7 +2,7 @@
 	"name": "Rues de Paris",
 	"description": "Historique et origine du nom de la rue de Paris où vous vous trouvez.",
 	"version": "0.1",
-	"launch_path": "http://bdumas.github.io/ruesdeparis/dist/index.html",
+	"launch_path": "/index.html",
 	"icons": {
         "16": "/img/icons/ruesdeparis16.png",
         "32": "/img/icons/ruesdeparis32.png",

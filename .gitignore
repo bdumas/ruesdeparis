@@ -1,8 +1,4 @@
 /node_modules
-/app
-/java
 /.settings
 /.project
-/gruntfile.js
-/package.json
 /*.class

@@ -2,3 +2,7 @@ node_modules
 .settings
 .project
 *.class
+
+#sources
+app
+java

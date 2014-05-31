@@ -21,16 +21,10 @@
 	"installs_allowed_from": ["*"],
 	"locales": {
 		"es": {
-			"description": "La historia de la calle de Paris donde esta.",
-			"developer": {
-				"url": "https://github.com/bdumas"
-			}
+			"description": "La historia de la calle de Paris donde esta."
 		},
 		"en": {
-			"description": "The history of the street of Paris where you are.",
-			"developer": {
-				"url": "https://github.com/bdumas"
-			}
+			"description": "The history of the street of Paris where you are."
 		}
 	},
 	"default_locale": "fr",

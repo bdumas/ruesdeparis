@@ -16,20 +16,20 @@
 	},
 	"developer": {
 		"name": "Benjamin Dumas",
-		"url": "https://github.com/bdumas/ruesdeparis"
+		"url": "https://github.com/bdumas"
 	},
 	"installs_allowed_from": ["*"],
 	"locales": {
 		"es": {
 			"description": "La historia de la calle de Paris donde esta.",
 			"developer": {
-				"url": "https://github.com/bdumas/ruesdeparis"
+				"url": "https://github.com/bdumas"
 			}
 		},
 		"en": {
 			"description": "The history of the street of Paris where you are.",
 			"developer": {
-				"url": "http://www.mygarageisgood4bricolage.com/ruesdeparis"
+				"url": "https://github.com/bdumas"
 			}
 		}
 	},

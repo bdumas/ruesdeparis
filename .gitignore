@@ -6,3 +6,5 @@ node_modules
 #sources
 app
 java
+gruntfile.js
+package.json

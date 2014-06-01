@@ -119,22 +119,6 @@
         result = result.replace("#DENOM#", "</p><p><strong>Dénomination : </strong>");
         return result;
     }
-    
-    function isOnline(no,yes){
-        var xhr = XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHttp');
-        xhr.onload = function(){
-            if(yes instanceof Function){
-                yes();
-            }
-        };
-        xhr.onerror = function(){
-            if(no instanceof Function){
-                no();
-            }
-        };
-        xhr.open("GET","http://www.google.fr",true);
-        xhr.send();
-    }
 
     function displayErrorMessage(message) {
         document.querySelector(".loading").style.display = "none";
@@ -161,20 +145,6 @@
             document.querySelector("#error").innerHTML = "";
             emptyInfoDiv();
             document.querySelector(".loading").style.display = "block";
-            var connected = false;
-            if (navigator.onLine) {
-                try {
-                    if (google.maps) {
-                        connected = true;
-                    }
-                } catch(e) {
-                    connected = false;
-                }
-            }
-            if (!connected) {
-                displayErrorMessage("L'application nécessite une connexion pour fonctionner.");
-                return;
-            }
             lat = null;
             lng = null;
             console.log("Launching localization...");

@@ -150,13 +150,14 @@
             console.log("Launching localization...");
             getPosition();
     }
-    start();
     
-    var reload = document.querySelector("#reload");
-    if (reload) {
-        reload.onclick = function () {
-            start();
-        };
-    }
+    window.onload = function () {
+        start();
+
+        var reload = document.querySelector("#reload");
+        if (reload) {
+            reload.onclick = start;
+        }
+    };
 
 })();

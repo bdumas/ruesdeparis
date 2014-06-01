@@ -55,7 +55,7 @@
     function extractStreet(results) {
         var city = results[0].address_components[2].long_name;
         console.log(city);
-        if (!city.contains('Paris')) {
+        if (city.indexOf('Paris') == -1) {
             displayErrorMessage("Vous avez été localisé à " + city + ". Cette application ne fonctionne qu'à Paris.");
             return;
         }
@@ -95,7 +95,7 @@
     
     function formatArr(arr) {
         var result;
-        if (arr !== null && arr.contains(",")) {
+        if (arr !== null && arr.indexOf(",") > -1) {
             result = arr.replace(/,/g, ", ") + " arrondissements.";
         } else {
             result = arr + " arrondissement.";

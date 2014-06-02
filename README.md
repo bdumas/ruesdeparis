@@ -21,19 +21,19 @@ Developers
 
 ### Project structure
 
-**app**: All the source files of the application
-**dist**: The packaged files
-**java**: Data in CSV format and some Java code to transform it into JSON format
-**gruntfiles.js**: grunt tasks
-**package.json**: grunt dependencies
+* **app**: All the source files of the application
+* **dist**: The packaged files
+* **java**: Data in CSV format and some Java code to transform it into JSON format
+* **gruntfiles.js**: grunt tasks
+* **package.json**: grunt dependencies
 
 ### Installation
 
-install [node](http://nodejs.org/)
-install grunt: `npm intall -g grunt-cli`
-install dependencies: `npm install`
+* install [node](http://nodejs.org/)
+* install grunt: `npm intall -g grunt-cli`
+* install dependencies: `npm install`
 
 ### Grunt commands
 
-**default**: `grunt build` exports the packaged app into the "dist" folder
-**watch**: `grunt watch` jslint in real time
+* **default**: `grunt build` exports the packaged app into the "dist" folder
+* **watch**: `grunt watch` jslint in real time

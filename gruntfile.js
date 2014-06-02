@@ -3,7 +3,7 @@ module.exports = function(grunt){
     require('load-grunt-tasks')(grunt);
     
     var conf = {
-        jsFiles: ['app/js/base.js', 'app/js/webapp.js'],
+        jsFiles: ['app/js/install.js', 'app/js/geolocation.js', 'app/js/webapp.js'],
         jsonFiles: ['app/data/ruesdeparis.json'],
         cssFiles: ['app/css/base.css', 'app/css/buttons.css', 'app/css/headers.css', 'app/css/toolbars.css', 'app/css/webapp.css'],
         build: {

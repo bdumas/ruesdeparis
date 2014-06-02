@@ -6,8 +6,10 @@ module.exports = function(grunt){
         jsFiles: ['app/js/install.js', 'app/js/geolocation.js', 'app/js/webapp.js'],
         jsonFiles: ['app/data/ruesdeparis.json'],
         cssFiles: ['app/css/base.css', 'app/css/buttons.css', 'app/css/headers.css', 'app/css/toolbars.css', 'app/css/webapp.css'],
+        cssFinalFile: '/css/<%= pkg.name %>-<%= pkg.version %>.min.css',
+        htmlFile: 'app/index.html',
         build: {
-            dest: 'dist' 
+            dest: 'dist'
         }
     };
 
@@ -34,6 +36,16 @@ module.exports = function(grunt){
             files: conf.cssFiles
         },
         
+        uncss: {
+            dist: {
+                src: conf.htmlFile,
+                dest: conf.build.dest + conf.cssFinalFile,
+                options: {
+                    report: 'min'
+                }
+            }
+        },
+        
         clean: {
             options: {
                 force: true
@@ -43,8 +55,8 @@ module.exports = function(grunt){
         
         cssmin: {
             files: {
-                src: conf.cssFiles,
-                dest: conf.build.dest + '/css/<%= pkg.name %>-<%= pkg.version %>.min.css'
+                src: conf.build.dest + conf.cssFinalFile,
+                dest: conf.build.dest + conf.cssFinalFile
             }
         },
         
@@ -119,6 +131,6 @@ module.exports = function(grunt){
     });
 
     grunt.registerTask('default', ['jshint','jsonlint']);
-    grunt.registerTask('build', ['default','clean','imagemin','copy','cssmin','uglify','targethtml','htmlmin']);
+    grunt.registerTask('build', ['default','clean','imagemin','copy','uncss','cssmin','uglify','targethtml','htmlmin']);
 
 };

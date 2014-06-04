@@ -88,6 +88,7 @@ var geolocationModule = (function () {
         } else {
             displayErrorMessage("Aucune information n'est disponible pour " + streetName + ".");
         }
+        return theStreet;
     }
     
     function formatLatLng() {
@@ -129,23 +130,37 @@ var geolocationModule = (function () {
     }
     
     function displayStreetInfo(coord, streetName, district, arr, histo) {
-        document.querySelector(".loading").style.display = "none";
-        document.querySelector("#error").innerHTML = "";
-        document.querySelector("#result-coord").innerHTML = coord;
-        document.querySelector("#result-streetName").innerHTML = streetName;
-        document.querySelector("#result-district").innerHTML = district;
-        document.querySelector("#result-arr").innerHTML = arr;
-        document.querySelector("#result-histo").innerHTML = histo;
+        updateLoadingDisplay("none");
+        updateInnerHTML("#error", "");
+        updateInnerHTML("#result-coord", coord);
+        updateInnerHTML("#result-streetName", streetName);
+        updateInnerHTML("#result-district", district);
+        updateInnerHTML("#result-arr", arr);
+        updateInnerHTML("#result-histo", histo);
     }
     
     function emptyInfoDiv() {
         displayStreetInfo("", "", "", "", "");
     }
+    
+    function updateInnerHTML(selector, value) {
+        var elt = document.querySelector(selector);
+        if (elt) {
+            elt.innerHTML = value;
+        }
+    }
+    
+    function updateLoadingDisplay(value) {
+        var elt = document.getElementsByClassName(".loading")[0];
+        if (elt) {
+            elt.style.display = value;
+        }
+    }
 
     function start() {
-        document.querySelector("#error").innerHTML = "";
+        updateInnerHTML("#error", "");
         emptyInfoDiv();
-        document.querySelector(".loading").style.display = "block";
+        updateLoadingDisplay("block");
         lat = null;
         lng = null;
         console.log("Launching localization...");
@@ -153,7 +168,11 @@ var geolocationModule = (function () {
     }
     
     return {
-        start: start
+        start: start,
+        
+        // for test purposes
+        _reduceStreetName: reduceStreetName,
+        _extractStreetInfo: extractStreetInfo
     };
     
 })();

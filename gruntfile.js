@@ -15,14 +15,6 @@ module.exports = function(grunt){
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        
-        /* TODO meta: {
-            banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
-              '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-              '<%= pkg.homepage ? "* " + pkg.homepage + "\n" : "" %>' +
-              '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
-              ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> *//*'
-        },*/
 
         jshint: {
             files: ['gruntfile.js', conf.jsFiles]
@@ -103,6 +95,12 @@ module.exports = function(grunt){
                     src: ['**/*.{png,jpg,jpeg,gif}'],
                     dest: conf.build.dest + '/img/'
                 }]
+            }
+        },
+        
+        karma: {
+            unit: {
+                configFile: 'app/test/karma.conf.js'
             }
         },
         

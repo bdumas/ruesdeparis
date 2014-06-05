@@ -54,10 +54,24 @@ var geolocationModule = (function () {
     }
     
     function extractStreet(results) {
-        var city = results[0].address_components[2].long_name;
+    	console.log(results);
+    	var city,
+    	    address = results[0];
+    	if (results && address) {
+	    	for (var i = 2; i++; i < 5) {
+	    		var addressComp = address.address_components[i];
+	    		if (!addressComp) {
+	    			break;
+	    		}
+	    		var city = addressComp.long_name;
+	    		if (city.indexOf('Paris') > -1) {
+	    			break;
+	    		}
+	    	}
+    	}
         console.log(city);
         if (city.indexOf('Paris') == -1) {
-            displayErrorMessage("Vous avez été localisé à " + city + ". Cette application ne fonctionne qu'à Paris.");
+            displayErrorMessage("Cette application ne fonctionne qu'à Paris.");
             return;
         }
         var streetName = results[0].address_components[1].long_name;
@@ -151,7 +165,7 @@ var geolocationModule = (function () {
     }
     
     function updateLoadingDisplay(value) {
-        var elt = document.getElementsByClassName(".loading")[0];
+        var elt = document.getElementsByClassName("loading")[0];
         if (elt) {
             elt.style.display = value;
         }

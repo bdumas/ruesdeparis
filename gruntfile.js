@@ -4,6 +4,7 @@ module.exports = function(grunt){
     
     var conf = {
         jsFiles: ['app/js/install.js', 'app/js/geolocation.js', 'app/js/webapp.js'],
+        jsTestFiles: ['app/test/unit/geolocation.test.js', 'app/test/e2e/scenarios.test.js', 'app/test/karma.conf.js', 'app/test/protractor.conf.js'],
         jsonFiles: ['app/data/ruesdeparis.json'],
         cssFiles: ['app/css/base.css', 'app/css/buttons.css', 'app/css/headers.css', 'app/css/toolbars.css', 'app/css/webapp.css'],
         cssFinalFile: '/css/<%= pkg.name %>-<%= pkg.version %>.min.css',
@@ -17,7 +18,7 @@ module.exports = function(grunt){
         pkg: grunt.file.readJSON('package.json'),
 
         jshint: {
-            files: ['gruntfile.js', conf.jsFiles]
+            files: ['gruntfile.js', conf.jsTestFiles, conf.jsFiles]
         },
 		
         jsonlint: {
@@ -104,6 +105,40 @@ module.exports = function(grunt){
             }
         },
         
+        'http-server': {
+            'dev': {
+                // the server root directory
+                root: 'dist/',
+                port: 8282,
+                // port: function() { return 8282; }
+                host: "127.0.0.1",
+                //cache: <sec>,
+                showDir : true,
+                autoIndex: true,
+                defaultExt: "html",
+
+                // run in parallel with other tasks
+                runInBackground: false
+            }
+        },
+        
+        protractor: {
+            options: {
+                configFile: "node_modules/protractor/referenceConf.js", // Default config file
+                keepAlive: true, // If false, the grunt process stops when the test fails.
+                noColor: false, // If true, protractor will not use colors in its output.
+                args: {
+                    // Arguments passed to the command
+                }
+            },
+            e2e: {
+                options: {
+                    configFile: "app/test/protractor.conf.js", // Target-specific config file
+                    args: {} // Target-specific arguments
+                }
+            },
+        },
+
         copy: {
             build: {
                 files: [

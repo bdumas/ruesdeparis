@@ -52,23 +52,23 @@ var geolocationModule = (function () {
             }
         });
     }
-    
+
     function extractStreet(results) {
-    	console.log(results);
-    	var city,
-    	    address = results[0];
-    	if (results && address) {
-	    	for (var i = 2; i++; i < 5) {
-	    		var addressComp = address.address_components[i];
-	    		if (!addressComp) {
-	    			break;
-	    		}
-	    		var city = addressComp.long_name;
-	    		if (city.indexOf('Paris') > -1) {
-	    			break;
-	    		}
-	    	}
-    	}
+        console.log(results);
+        var city,
+            address = results[0];
+        if (results && address) {
+            for (var i = 2; i++; i < 5) {
+                var addressComp = address.address_components[i];
+                if (!addressComp) {
+                    break;
+                }
+                city = addressComp.long_name;
+                if (city.indexOf('Paris') > -1) {
+                    break;
+                }
+            }
+        }
         console.log(city);
         if (city.indexOf('Paris') == -1) {
             displayErrorMessage("Cette application ne fonctionne qu'à Paris.");

@@ -129,10 +129,19 @@ module.exports = function(grunt){
         copy: {
             build: {
                 files: [
-                    {src: 'app/data/ruesdeparis.json', dest: conf.build.dest + '/data/ruesdeparis.json', flatten: true},
-                    {src: 'app/fonts/moztt_light-webfont.woff', dest: conf.build.dest + '/fonts/moztt_light-webfont.woff', flatten: true},
-                    {src: 'app/fonts/moztt_medium-webfont.woff', dest: conf.build.dest + '/fonts/moztt_medium-webfont.woff', flatten: true},
-                    {src: 'app/fonts/moztt_regular-webfont.woff', dest: conf.build.dest + '/fonts/moztt_regular-webfont.woff', flatten: true},
+                    {src: 'app/data/ruesdeparis.json', dest: conf.build.dest + '/data/ruesdeparis.json'},
+                    {src: 'app/fonts/moztt_light-webfont.woff', dest: conf.build.dest + '/fonts/moztt_light-webfont.woff'},
+                    {src: 'app/fonts/moztt_medium-webfont.woff', dest: conf.build.dest + '/fonts/moztt_medium-webfont.woff'},
+                    {src: 'app/fonts/moztt_regular-webfont.woff', dest: conf.build.dest + '/fonts/moztt_regular-webfont.woff'}
+                ]
+            },
+            buildWithProcess: {
+                options: {
+                    process: function (content, srcpath) {
+                        return content.replace(/ruesdeparis\/app/g,"ruesdeparis/dist");
+                    }
+                },
+                files: [
                     {src: 'app/manifest.webapp', dest: 'dist/manifest.webapp'}
                 ]
             }

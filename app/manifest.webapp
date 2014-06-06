@@ -2,17 +2,17 @@
 	"name": "Rues de Paris",
 	"description": "Historique et origine du nom de la rue de Paris où vous vous trouvez.",
 	"version": "0.1",
-	"launch_path": "/ruesdeparis/dist/index.html",
+	"launch_path": "/ruesdeparis/app/index.html",
 	"icons": {
-        "16": "/ruesdeparis/dist/img/icons/ruesdeparis16.png",
-        "32": "/ruesdeparis/dist/img/icons/ruesdeparis32.png",
-        "48": "/ruesdeparis/dist/img/icons/ruesdeparis48.png",
-        "60": "/ruesdeparis/dist/img/icons/ruesdeparis60.png",
-        "64": "/ruesdeparis/dist/img/icons/ruesdeparis64.png",
-        "90": "/ruesdeparis/dist/img/icons/ruesdeparis90.png",
-        "120": "/ruesdeparis/dist/img/icons/ruesdeparis120.png",
-        "128": "/ruesdeparis/dist/img/icons/ruesdeparis128.png",
-		"256": "/ruesdeparis/dist/img/icons/ruesdeparis256.png"
+        "16": "/ruesdeparis/app/img/icons/ruesdeparis16.png",
+        "32": "/ruesdeparis/app/img/icons/ruesdeparis32.png",
+        "48": "/ruesdeparis/app/img/icons/ruesdeparis48.png",
+        "60": "/ruesdeparis/app/img/icons/ruesdeparis60.png",
+        "64": "/ruesdeparis/app/img/icons/ruesdeparis64.png",
+        "90": "/ruesdeparis/app/img/icons/ruesdeparis90.png",
+        "120": "/ruesdeparis/app/img/icons/ruesdeparis120.png",
+        "128": "/ruesdeparis/app/img/icons/ruesdeparis128.png",
+		"256": "/ruesdeparis/app/img/icons/ruesdeparis256.png"
 	},
 	"developer": {
 		"name": "Benjamin Dumas",

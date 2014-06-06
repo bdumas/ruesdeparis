@@ -13,7 +13,9 @@ The application is hosted on [https://bdumas.github.io/ruesdeparis](https://bdum
 Datas come from the following file [https://raw.githubusercontent.com/bdumas/ruesdeparis/gh-pages/java/export_opendata_voies_actuelles_2012-01-17.csv] provided by 
 [Paris Open Data](http://opendata.paris.fr).
 
-Reverse geocoding service (transformation of geographic coordinates into addresses) is provided by Google. 
+Reverse geocoding service (transformation of geographic coordinates into addresses) is provided by Google.
+
+Note: this application was developped without smartphone and far from Paris. Hope the tests are good enough!
 
 
 Developers
@@ -22,7 +24,7 @@ Developers
 ### Project structure
 
 * **app**: All the source files of the application
-* **dist**: The packaged files
+* **dist**: The packaged files (used by the hosted app)
 * **java**: Data in CSV format and some Java code to transform it into JSON format
 * **gruntfiles.js**: grunt tasks
 * **package.json**: grunt dependencies

@@ -1,24 +1,23 @@
 exports.config = {
-  allScriptsTimeout: 11000,
+    allScriptsTimeout: 11000,
 
-  specs: [
-    'e2e/*.test.js'
-  ],
+    specs: [
+        'e2e/*.test.js'
+    ],
 
-  /*capabilities: {
-    'browserName': 'chrome'
-  },
-
-  chromeOnly: true,
+    seleniumAddress: 'http://localhost:4444/wd/hub',
+    
+    framework: 'jasmine',
   
-  chromeDriver: '../../node_modules/chromedriver',*/
-
-  baseUrl: 'http://localhost:8282/',
-  seleniumAddress: 'http://localhost:4444/wd/hub',
-
-  framework: 'jasmine',
-
-  jasmineNodeOpts: {
-    defaultTimeoutInterval: 30000
-  }
+    jasmineNodeOpts: {
+        defaultTimeoutInterval: 30000
+    },
+      
+    onPrepare: function() {
+        var ptor = protractor.getInstance();
+        ptor.elem = ptor.findElement;
+        ptor.elems = ptor.findElements;
+        global.by = protractor.By;
+        global.ptor = ptor;
+    }
 };

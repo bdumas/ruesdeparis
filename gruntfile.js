@@ -107,36 +107,23 @@ module.exports = function(grunt){
         
         'http-server': {
             'dev': {
-                // the server root directory
                 root: 'dist/',
                 port: 8282,
-                // port: function() { return 8282; }
                 host: "127.0.0.1",
-                //cache: <sec>,
                 showDir : true,
                 autoIndex: true,
                 defaultExt: "html",
-
-                // run in parallel with other tasks
                 runInBackground: false
             }
         },
         
         protractor: {
-            options: {
-                configFile: "node_modules/protractor/referenceConf.js", // Default config file
-                keepAlive: true, // If false, the grunt process stops when the test fails.
-                noColor: false, // If true, protractor will not use colors in its output.
-                args: {
-                    // Arguments passed to the command
-                }
-            },
-            e2e: {
+           e2e: {
                 options: {
-                    configFile: "app/test/protractor.conf.js", // Target-specific config file
-                    args: {} // Target-specific arguments
+                    configFile: "app/test/protractor.conf.js",
+                    args: {}
                 }
-            },
+            }
         },
 
         copy: {

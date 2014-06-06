@@ -15,7 +15,8 @@ Datas come from the following file [https://raw.githubusercontent.com/bdumas/rue
 
 Reverse geocoding service (transformation of geographic coordinates into addresses) is provided by Google.
 
-Note: this application was developped without smartphone and far from Paris. Hope the tests are good enough!
+Note: this application was developed without smartphone and far from Paris. Hope the tests are good enough!
+It mainly was for me an excuse to discover new front end technologies.
 
 
 Developers
@@ -43,8 +44,7 @@ Developers
 
 ### End to end tests
 
-* launch local server: `grunt http-server`
-* install protractor: `npm install protractor`
 * update webdriver: `node node_modules/protractor/bin/webdriver-manager update`
 * launch selenium server: `node node_modules/protractor/bin/webdriver-manager start`
-* launch tests: `grunt  protractor:e2e`
+* launch local server: `grunt http-server`
+* launch tests: `grunt  protractor`

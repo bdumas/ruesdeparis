@@ -14,6 +14,7 @@
     "grunt-contrib-imagemin": "~0.7.1",
     "grunt-contrib-jshint": "~0.10.0",
     "grunt-contrib-uglify": "~0.4.0",
+    "grunt-http-server": "~0.0.5",
     "grunt-jsonlint": "~1.0.4",
     "grunt-karma": "~0.8.3",
     "grunt-protractor-runner": "^1.0.0",
@@ -29,7 +30,7 @@
     "karma-sauce-launcher": "~0.2.8",
     "karma-script-launcher": "~0.1.0",
     "karma-story-reporter": "~0.2.2",
-    "grunt-http-server": "~0.0.5",
-    "load-grunt-tasks": "~0.4.0"
+    "load-grunt-tasks": "~0.4.0",
+    "protractor": "^0.24.0"
   }
 }

@@ -148,13 +148,13 @@ var geolocationModule = (function () {
 
     function displayErrorMessage(message) {
         emptyInfoDiv();
-        updateDisplay("loading", "none");
         updateInnerHTML("error", message);
         updateDisplay("error", "block");
     }
     
     function displayStreetInfo(coord, streetName, district, arr, histo) {
         updateDisplay("error", "none");
+        updateDisplay("loading", "none");
         updateInnerHTML("result-coord", coord);
         updateInnerHTML("result-streetName", streetName);
         updateInnerHTML("result-district", district);
@@ -181,8 +181,8 @@ var geolocationModule = (function () {
     }
 
     function start() {
-        updateDisplay("loading", "block");
         emptyInfoDiv();
+        updateDisplay("loading", "block");
         updateDisplay("error", "none");
         updateInnerHTML("error", "");
         lat = null;

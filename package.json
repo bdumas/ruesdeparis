@@ -31,6 +31,6 @@
     "karma-script-launcher": "~0.1.0",
     "karma-story-reporter": "~0.2.2",
     "load-grunt-tasks": "~0.4.0",
-    "protractor": "^0.24.0"
+    "protractor": "~0.24.0"
   }
 }

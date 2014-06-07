@@ -1,7 +1,13 @@
 var geolocationModule = (function () {
     "use strict";
    
-    var geocoder, lat, lng;
+    var geocoder, 
+        lat, 
+        lng,
+        ERROR_MSG_LOC_NOT_FOUND = "Votre localisation n'a pas pu être déterminée.",
+        ERROR_MSG_ADDRESS_NOT_FOUND = "Echec de la recherche de l'adresse : ",
+        ERROR_MSG_LOC_NOT_PARIS = "Cette application ne fonctionne qu'à Paris.",
+        ERROR_MSG_NO_INFORMATION = "Aucune information n'est disponible pour ";
     
     function reduceStreetName(street) {
         console.log("reduceStreetName(" + street + ")");
@@ -27,7 +33,7 @@ var geolocationModule = (function () {
         navigator.geolocation.getCurrentPosition(
             reverseGeocode,
             function (position) {
-                displayErrorMessage("Votre localisation n'a pas pu être déterminée.");
+                displayErrorMessage(ERROR_MSG_LOC_NOT_FOUND);
             }, 
             options
         );
@@ -36,6 +42,10 @@ var geolocationModule = (function () {
     function reverseGeocode(position) {
         lat = position.coords.latitude;
         lng = position.coords.longitude;
+        if (lat === null || lng === null) {
+            displayErrorMessage(ERROR_MSG_LOC_NOT_FOUND);
+            return;
+        }
         console.log("lat: " + lat + ", lng: " + lng);
         console.log("Accuracy in meters: " + position.accuracy);
         var latlng = new google.maps.LatLng(lat, lng);
@@ -48,7 +58,7 @@ var geolocationModule = (function () {
             if (status == google.maps.GeocoderStatus.OK) {
                 extractStreet(results);
             } else {
-                displayErrorMessage("Echec de la recherche de l'adresse : " + status);
+                displayErrorMessage(ERROR_MSG_ADDRESS_NOT_FOUND + status);
             }
         });
     }
@@ -71,7 +81,7 @@ var geolocationModule = (function () {
         }
         console.log(city);
         if (city.indexOf('Paris') == -1) {
-            displayErrorMessage("Cette application ne fonctionne qu'à Paris.");
+            displayErrorMessage(ERROR_MSG_LOC_NOT_PARIS);
             return;
         }
         var streetName = results[0].address_components[1].long_name;
@@ -100,7 +110,7 @@ var geolocationModule = (function () {
         if (theStreet) {
             displayStreetInfo(formatLatLng(), streetName, "Quartier " + theStreet.d, formatArr(theStreet.a), formatHisto(theStreet.h));
         } else {
-            displayErrorMessage("Aucune information n'est disponible pour " + streetName + ".");
+            displayErrorMessage(ERROR_MSG_NO_INFORMATION + streetName + ".");
         }
         return theStreet;
     }
@@ -137,44 +147,44 @@ var geolocationModule = (function () {
     }
 
     function displayErrorMessage(message) {
-        document.querySelector(".loading").style.display = "none";
         emptyInfoDiv();
-        var errorParag = document.querySelector("#error");
-        errorParag.innerHTML = message;
+        updateDisplay("loading", "none");
+        updateInnerHTML("error", message);
+        updateDisplay("error", "block");
     }
     
     function displayStreetInfo(coord, streetName, district, arr, histo) {
-        updateLoadingDisplay("none");
-        updateInnerHTML("#error", "");
-        updateInnerHTML("#result-coord", coord);
-        updateInnerHTML("#result-streetName", streetName);
-        updateInnerHTML("#result-district", district);
-        updateInnerHTML("#result-arr", arr);
-        updateInnerHTML("#result-histo", histo);
+        updateDisplay("error", "none");
+        updateInnerHTML("result-coord", coord);
+        updateInnerHTML("result-streetName", streetName);
+        updateInnerHTML("result-district", district);
+        updateInnerHTML("result-arr", arr);
+        updateInnerHTML("result-histo", histo);
     }
     
     function emptyInfoDiv() {
         displayStreetInfo("", "", "", "", "");
     }
     
-    function updateInnerHTML(selector, value) {
-        var elt = document.querySelector(selector);
+    function updateInnerHTML(eltId, value) {
+        var elt = document.getElementById(eltId);
         if (elt) {
             elt.innerHTML = value;
         }
     }
     
-    function updateLoadingDisplay(value) {
-        var elt = document.getElementsByClassName("loading")[0];
+    function updateDisplay(className, value) {
+        var elt = document.getElementsByClassName(className)[0];
         if (elt) {
             elt.style.display = value;
         }
     }
 
     function start() {
-        updateInnerHTML("#error", "");
+        updateDisplay("loading", "block");
         emptyInfoDiv();
-        updateLoadingDisplay("block");
+        updateDisplay("error", "none");
+        updateInnerHTML("error", "");
         lat = null;
         lng = null;
         console.log("Launching localization...");

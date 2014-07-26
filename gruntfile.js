@@ -8,7 +8,7 @@ module.exports = function(grunt){
         jsonFiles: ['app/data/ruesdeparis.json'],
         cssFiles: ['app/css/base.css', 'app/css/buttons.css', 'app/css/headers.css', 'app/css/toolbars.css', 'app/css/webapp.css'],
         cssFinalFile: '/css/<%= pkg.name %>-<%= pkg.version %>.min.css',
-        htmlFile: 'app/index.html',
+        htmlFile: ['app/index.html', 'app/privacy-policy.html'],
         build: {
             dest: 'dist'
         }
@@ -70,6 +70,10 @@ module.exports = function(grunt){
                 files: [{
                     src: 'app/index.html',
                     dest: conf.build.dest + '/index.html'
+                },
+                {
+                    src: 'app/privacy-policy.html',
+                    dest: conf.build.dest + '/privacy-policy.html'
                 }]
             }
         },

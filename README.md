@@ -9,6 +9,7 @@ This web app displays informations (in French) about the street of Paris where t
 Thus it can only be used in the area of Paris.
 
 The application is hosted on [https://bdumas.github.io/ruesdeparis](https://bdumas.github.io/ruesdeparis).
+It is available in the [Firefox Marketplace](https://marketplace.firefox.com/app/rues-de-paris) too.
 
 Datas come from the following file [https://raw.githubusercontent.com/bdumas/ruesdeparis/gh-pages/java/export_opendata_voies_actuelles_2012-01-17.csv] provided by 
 [Paris Open Data](http://opendata.paris.fr).
